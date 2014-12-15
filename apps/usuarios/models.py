@@ -10,6 +10,7 @@ class Usuario(models.Model):
 	apellidos = models.CharField(max_length=50)
 
 	telefono = models.IntegerField()
+	correo = models.EmailField(max_length=50)
 	imagen = models.ImageField(upload_to='profile_image')
 	descripcion = models.TextField(max_length=300)
 	status = models.BooleanField(default=False)

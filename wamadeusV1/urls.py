@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from .views import home
+from .views import home, registro
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,4 +15,6 @@ urlpatterns = patterns('',
     url(r'^cerrar/$', 'django.contrib.auth.views.logout_then_login',name='logout'),
 
     url(r'^home/$',home, name='home'),
+
+    url(r'^registro/$', registro, name='registro'),
 )
