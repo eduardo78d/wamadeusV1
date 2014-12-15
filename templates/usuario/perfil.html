@@ -1,0 +1,57 @@
+{% extends 'plantillas/cabezera.html'%}
+{%block content%}
+<nav id="menuizq">
+		<!--@include('usuario.perfilmenu') -->
+		<ul>
+			<li><a href="{% url 'principal' %}">Tablero inicial</a></li>
+      <li class="selected"><a href="{% url 'perfil' %}">Perfil</a></li>
+      <li class="sub selected"><a href="{% url 'perfil' %}">Perfil de usuario</a></li>
+      <li class="sub"><a href="{% url 'editarPerfil'%}">Editar datos</a></li>
+      
+		</ul>
+		
+	</nav>
+	<div id="pag">
+    <section id="content">
+      <section id="header">
+        <span id="home"></span>Perfil
+        <div class="titulo">
+          <h1>Perfil ›</h1>
+        </div>
+      </section>
+      <section id="info">
+          
+          <section class="cuadro">
+            <h2><span>Mis</span> Proyectos</h2>
+            <table class="table">
+              <tbody>
+                
+              </tbody>
+
+            </table>
+          </section>
+
+          <section class="cuadro">
+            <h2><span>Tiempos</span> Dedicados</h2><!--<span class="ordenar"><b>Ordernar por: </b><a href="#">Actividad</a> <a href="#">Aportación</a></span>-->
+            <table class="table">
+              <tbody>
+              
+              </tbody>
+            </table>
+
+          </section>
+
+          <section class="cuadro">
+            <h2><span>Ultimas</span> Actividades</h2>
+            <table class="table">
+              <tbody>
+                <h3>LALO</h3>
+                
+              </tbody>
+            </table>
+          </section>
+      </section>
+
+    </section>
+  </div>
+{% endblock content%}

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang = "es">
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+	
+	<title>Wamadeus</title>
+	<meta charset = "UTF-8" />
+</head>
+<body>	
+	<header>
+		<div id="hright">
+			<form style="position:relative">
+				<input type="text" placeholder="Buscar proyectos" class="busqProyectos" />
+				<div id="busq"><ul></ul></div>
+				<input type="submit" style="display:none;" />
+			</form>
+			<span id="nombre"> Eduardo </span>
+			
+		</div>
+		<h3><a href=".">Wamadeus</a></h3>
+		<a href="{% url 'logout' %}" class="logout">Cerrar sesión</a>
+	</header>
+
+	{% block content %} {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,775 @@
+/* Resetting */
+a, abbr, acronym, address, applet, article, aside, audio,
+b, blockquote, big, body,
+center, canvas, caption, cite, code, command,
+datalist, dd, del, details, dfn, dl, div, dt, 
+em, embed,
+fieldset, figcaption, figure, font, footer, form, 
+h1, h2, h3, h4, h5, h6, header, hgroup, html,
+i, iframe, img, ins,
+kbd, 
+keygen,
+label, legend, li, 
+meter,
+nav,
+object, ol, output,
+p, pre, progress,
+q, 
+s, samp, section, small, span, source, strike, strong, sub, sup,
+table, tbody, tfoot, thead, th, tr, tdvideo, tt,
+u, ul, 
+var{
+    background: transparent;
+    border: 0 none;
+    font-size: 100%;
+    margin: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+    vertical-align: top; }
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+table, table td { 
+	padding:0;
+	border:none;
+	border-collapse:collapse;
+}
+img {
+	vertical-align:top; 
+}
+embed { 
+	vertical-align:top;
+}
+* { border:none; }
+
+/* Getting the new tags to behave */
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video, div{ display: block; position:relative; }
+mark, rp, rt, ruby, summary, time { display: inline; }
+body {
+	font-family: Arial;
+	color: #7d7264;
+}
+/* Base */
+a {
+	color: #1c416b;
+	text-decoration: none;
+}
+h1 {
+	font-size: 40px;
+}
+.inicio {
+	background: url(imgs/wall.jpg);
+}
+#login {
+	margin-right: auto;
+	margin-left: auto;
+	width: 300px;
+	padding: 20px;
+
+	margin-top: 150px;
+}
+#login input {
+	padding: 10px;
+	border-radius: 5px;
+	width: 280px;
+	font-size: 16px;
+	margin-bottom: 5px;
+	color: #717171;
+	background: #a79a89;
+	box-shadow: 1px -1px 5px #717171;
+}
+#login input::-webkit-input-placeholder {
+   color: #717171;
+}
+#login h1 {
+	text-align: center;
+	padding-bottom: 10px;
+	color: #7d7264;
+}
+#login h2 {
+	padding-bottom: 10px;
+	color: #7d7264;
+}
+#login #enviar {
+	background: #1c416b;
+	color: #d9d9d9;
+	width: 100%;
+	border-radius: 0;
+	box-shadow: none;
+	margin-top: 20px;
+}
+#login #nuevacuenta {
+	text-align: right;
+	width: 100%;
+	display: inline-block;
+	padding-top: 5px;
+}
+/* Inicio */
+header {
+	position: fixed;
+	top: 0;
+	height: 17px;
+	left: 0; right: 0;
+	background: #f0e8db;
+	padding: 20px;
+	z-index: 99;
+}
+header #hright {
+	float: right;
+}
+header form {
+	display: inline-block;
+}
+header #img {
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	display: inline-block;
+	margin-top: -10px;
+	margin-left: 10px;
+	margin-bottom: -10px;
+
+}
+header h3 {
+	color: #7d7264;
+	font-size: 22px;
+	margin: -5px 0;
+	display: inline-block;
+}
+header #titmenu {
+	background: #aaa;
+	margin-left: 10px;
+	border-radius: 5px;
+	padding: 5px;
+	color: #fff;
+}
+header input {
+	padding: 5px;
+	
+	margin: -10px 0;
+	margin-right: 100px;
+	border-radius: 5px;
+}
+#menuizq {
+	position: fixed;
+	background: #f4f1ec;
+	top: 57px;
+	width: 250px;
+	left: 0;
+	bottom: 0;
+	z-index: 99;
+}
+#menuizq #perfilmenu {
+	margin: 0 20px;
+	margin-top: 20px;
+	font-size: 12px;
+
+}
+#menuizq #perfilmenu #perfilimg {
+	width: 70px;
+	float: left;
+	height: 70px;
+	margin-right: 5px;
+	border-radius: 70px;
+}
+#menuizq #perfilmenu #nombre {
+	font-size: 15px;
+	padding-left: 5px;
+	display: inline-block;
+	padding-bottom: 10px;
+	color: #656565;
+	width: 130px;
+}
+#lugar {
+	background: url(imgs/iconos.png) 0 0 no-repeat;
+	height: 18px;
+	padding-left: 20px;
+	display: inline-block;
+	width: 110px;
+}
+#empleo {
+	background: url(imgs/iconos.png) 0 -23px no-repeat;
+	height: 18px;
+	padding-left: 20px;
+	width: 110px;
+	display: inline-block;
+}
+#menuizq ul {
+	margin-top: 40px;
+	background: #faf9f5;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 20px;
+}
+#menuizq ul li {
+	
+	
+}
+#menuizq ul li a, #menuizq #lChat li {
+	color: #7d7264;
+	display: inline-block;
+	padding: 10px 20px;
+	border-top: 1px solid #ddd;
+	width: 210px;
+}
+#menuizq ul li.selected a {
+	background: #f0efea;
+}
+#menuizq ul li.sub a {
+	background: #eae6e3;
+}
+#menuizq ul .sub.selected a {
+	background: #dedad7;
+}
+#menuizq h2 {
+	margin: 10px;
+	display: inline-block;
+}
+#menuizq #addChat {
+	display: inline-block;
+	border-radius: 40px;
+	background: #666;
+	width: 10px;
+	padding: 0 5px;
+	height: 20px;
+	color: #fff;
+	margin-top: 8px;
+	margin-left: 150px;
+}
+#menuizq ul .msjs {
+	display: inline-block;
+	border-radius: 40px;
+	background: #666;
+	width: 13px;
+	height: 18px;
+	padding-left: 7px;
+	padding-top: 2px;
+	color: #fff;
+	font-size: 12px;
+	margin-right: 10px;
+}
+#menuizq #lChat {
+	
+}
+#menuizq #lChat li {
+	padding: 5px 10px;
+	width: 230px;
+	cursor: pointer;
+	position: relative;
+}
+#menuizq #lChat .chat {
+	position: absolute;
+	left: 260px;
+	top:-50px;
+	width: 265px;
+	height: 200px;
+	border: 1px solid #777;
+	cursor: default;
+	font-size: 12px;
+	background: #fff;
+	display: none;
+}
+#menuizq #lChat .chat ul {
+	overflow: auto;
+	width: 265px;
+	height: 156px;
+	margin: 0;
+}
+#menuizq #lChat .chat li {
+	cursor: default;
+
+}
+#menuizq #lChat .chat .input {
+	position: absolute;
+	bottom: 5px;
+	left: 15px;
+	background: #f1f1f1;
+}
+#menuizq #lChat .chat input {
+	padding: 5px;
+	border: 1px solid #ddd;
+	width: 220px;
+}
+#pag {
+	width: 100%;
+	position: relative;
+}
+#content {
+	margin-top: 57px;
+	padding: 20px;
+	padding-left: 270px;
+}
+#header #home {
+	background: url(imgs/iconos.png) 0 -40px no-repeat;
+	display: inline-block;
+	width: 25px;
+	height: 20px;
+	margin-bottom: 10px;
+}
+#header .titulo {
+	
+	border-top: 1px solid #999;
+}
+#header .titulo h1 {
+	padding-top: 10px;
+	display: inline-block;
+	font-size: 34px;
+	padding-right: 20px;
+	padding-bottom: 8px;
+}
+#header .titulo ul {
+	display: inline-block;
+}
+#header .titulo ul li {
+	display: inline-block;
+}
+#header .titulo ul li a {
+	padding: 20px 20px;
+	display: inline-block;
+}
+#header .titulo ul li.selected a {
+	background: #f7f7f7;
+}
+#header .titulo ul li a{
+	color: #7d7264;
+}
+#info {
+	background: #f7f7f7;
+	min-height: 500px;
+	margin: 0 -20px;
+	margin-bottom: -20px;
+
+	padding: 20px;
+	padding-bottom: 80px;
+	position: relative;
+}
+#buscar {
+	background: url(imgs/lupa.jpg) center;
+	border: 1px solid #000;
+	padding: 50px;
+	background-size: 100%;
+	height: 150px;
+	position: relative;
+}
+#buscar h2 {
+	position: absolute;
+	right: 70px;
+	top: 70px;
+	font-size: 40px;
+	color: #fff;
+}
+#buscar form {
+	right: 70px;
+	position: absolute;
+	bottom: 70px;
+}
+#buscar input {
+	padding: 10px 30px;
+	width: 400px;
+}
+#buscar label {
+	color: #fff;
+	display: block;
+	font-weight: bold;
+}
+.nuevo {
+	padding: 10px;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+.nuevo input {
+	width: 100%;
+	font-weight: bold;
+	color: #999;
+}
+.nuevo input:focus {
+	outline: 0;
+}
+.cuadro {
+	background: #fff;
+	margin-top: 20px;
+}
+.cuadro h2 {
+	font-size: 20px;
+	padding: 20px;
+	padding-bottom: 0;
+	font-weight: normal;
+	margin-bottom: 20px;
+}
+.cuadro h2 span {
+	font-weight: bold;
+}
+.table {
+	width: 100%;
+	font-size: 12px;
+}
+.table tr {
+	border-top: 1px solid #ddd;
+}
+.table tr td {
+	padding: 10px 15px;
+}
+.table-hover tr:hover {
+	background: #eee;
+}
+.table .solicitud {
+	background: #f0eab8;
+}
+#tiempo a {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url(imgs/iconos.png) 0 -69px no-repeat;
+}
+.mas a {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url(imgs/iconos.png) 0 -55px no-repeat;
+	margin-left: 4px;
+}
+.right {
+	text-align: right;
+}
+#tiempog {
+	display: none;
+	height: 28px;
+	background: url(imgs/iconos.png) 0 -87px no-repeat;
+	margin-left: 20px;
+	padding-left: 39px;
+	padding-top: 4px;
+	margin-top: -3px;
+}
+#tiempog a {
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 12px;
+	margin-top: 2px;
+}
+.main {
+	padding-right: 280px;
+}
+.menuwidth {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	width: 250px;
+	background: #eee;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+}
+#menuinfo h3 {
+ 	font-size: 20px;
+ 	padding: 20px;
+}
+#menuinfo ul li {
+	border-bottom: 1px dashed #ddd;
+	padding: 8px 20px;
+	font-size: 14px;
+	color: #999;
+}
+#menuinfo ul li span {
+	display: block;
+}
+#menuinfo ul li .hidden {
+	display: none;
+}
+#menuinfo ul li input, #menuinfo ul li select {
+	border: 1px solid #777;
+	width: 170px;
+	padding: 5px 10px;
+}
+#menuinfo ul li input {
+	width: 150px;
+}
+#menuinfo ul li .paloma {
+	background: #fff url(imgs/paloma.png) center no-repeat;
+	border-radius: 20px;
+	padding: 5px;
+	width: 15px;
+	height: 15px;
+	margin-top: 4px;
+	display: inline-block;
+	cursor: pointer;
+	margin-left: 5px;
+}
+#menuinfo .subtareas {
+	background: #fff;
+	margin: 20px;
+	width: 200px;
+	border: 1px solid #ddd;
+}
+#menuinfo .subtareas tr{
+	border-bottom: 1px solid #b8caff;
+}
+#menuinfo .subtareas .cb {
+	padding: 5px;
+	border-right: 1px solid #c15757;
+	width: 5px;
+}
+#menuinfo .subtareas .task {
+	padding: 5px;
+	padding-top: 4px;
+	padding-left: 10px;
+	font-size: 14px;
+}
+#menuinfo input:focus {
+	outline: 0;
+}
+#menuinfo .subtareas .add {
+	border-bottom: none;
+}
+#menuinfo .subtareas .add .cb {
+	padding-top: 8px;
+	padding-left: 11px;
+	font-weight: bold;
+}
+#menuinfo #notas textarea {
+	margin: 20px;
+	margin-top: 0;
+	padding: 10px;
+	background: #f0eab8;
+	font-family: Arial;
+	width: 180px;
+	border: 1px solid #ddd;
+	color: #777;
+}
+
+#form li {
+	padding: 10px 0;
+}
+#form label {
+	display: inline-block;
+	width: 200px;
+	font-size: 18px;
+	padding: 10px 0;
+}
+#form input, #form textarea {
+	padding: 10px; 
+	font-size: 14px;
+	width: 300px;
+	border: 1px solid #ddd;
+}
+#form .junto {
+	display: inline-block;
+}
+#form .junto input {
+	width: 100px;
+}
+#busq {
+	background: #777;
+	width: 200px;
+	margin-top: 5px;
+	color: #fff;
+	padding: 5px 0;
+	display: none;
+}
+#busq li {
+	font-size: 12px;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+#busq li:hover {
+	background: #999;
+}
+#center {
+	text-align: center;
+}
+#center h2 {
+	font-size: 30px;
+	margin: 20px 0;
+}
+#center button {
+	padding: 20px 30px;
+	margin-top: 20px;
+	font-size: 20px;
+}
+.colaboradores .imagenperfil {
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+	display: inline-block;
+	margin: 10px;
+}
+.colaboradores .imagenperfil span {
+	display: inline-block;
+	width: 160px;
+	padding: 10px 20px;
+	background: #888;
+	position: absolute;
+	bottom: 10px;
+	color: #000;
+	font-size: 12px;
+}
+.colaboradores .imagenperfil #eliminar, .colaboradores .imagenperfil #b2 {
+	top: 0;
+	width: auto;
+	bottom: auto;
+	left: 10px;
+	width: auto;
+	padding: 0;
+	background: transparent;
+}
+.colaboradores .imagenperfil #eliminar a, .colaboradores .imagenperfil #b2 a {
+	background: #741425;
+	color: #fff;
+	padding: 5px 10px;
+	width: auto;
+	border-radius: 20px;
+}
+.colaboradores .imagenperfil #b2 {
+	left: 40px;
+}
+#h2grande {
+	font-size: 25px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.ordenar {
+	display: inline-block;
+	font-size: 12px;
+	padding-top: 26px;
+	margin-left: 20px;
+}
+.ordenar a {
+	display: inline-block;
+	padding-left: 20px;
+}
+footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+}
+.chatfooter {
+	background: #ccc;
+	display: inline-block;
+	margin-right: 10px;
+	position: relative;
+}
+.chatfooter .nombre {
+	padding: 10px 20px;
+	display: inline-block;
+	width: 210px;
+	height: 16px;
+	cursor: pointer;
+}
+.chatfooter .new {
+	width: 10px;
+}
+.chatfooter .chat {
+	position: absolute;
+	bottom: 38px;
+	left: 0;
+	width: 250px;
+	background: #fff;
+	border: 2px solid #eee;
+	display: none;
+}
+.chatfooter .activo {
+	display: block;
+}
+.chatfooter .chat nav {
+	height: 200px;
+	overflow: auto;
+	margin: 20px;
+	margin-right: 0;
+}
+.chatfooter .chat nav .system {
+	font-style: italic;
+}
+.chatfooter .chat .add {
+	background: #f1f1f1;
+	position: absolute;
+	bottom: 42px;
+	left: 0;
+	right: 0;
+	padding: 10px;
+	display: none;
+}
+.chatfooter .chat .add .contBlanco {
+	background: #fff;
+	padding: 2px;
+}
+.chatfooter .chat .add .contBlanco input {
+	border: none;
+	padding: 2px 5px;
+	display: inline-block;
+	width: 120px
+}
+.chatfooter .chat .add .contBlanco input:focus {
+	outline: none;
+}
+.chatfooter .chat .add .contBlanco span {
+	display: inline-block;
+	background: #f9f9f9;
+	font-size: 12px;
+	padding: 2px 5px;
+	width: auto;
+	margin: 2px;
+}
+.chatfooter .chat .add .contBlanco span .cerrar {
+	padding: 0;
+	padding-left: 4px;
+}
+.chatfooter .chat .add .busqueda {
+	position: absolute;
+	bottom: 38px;
+	background: #ccc;
+	padding: 0;
+	display: none;
+}
+.chatfooter .chat .add .busqueda li {
+	font-size: 12px;
+	width: 150px;
+	cursor: pointer;
+	padding: 2px 8px;
+}
+.chatfooter .chat .input {
+	background: #aaa;
+	color: #fff;
+	padding: 5px;
+}
+.chatfooter .chat input {
+	border: 1px solid #aaa;
+	padding: 5px 10px;
+}
+.chatfooter .chat .mas2 {
+	padding: 3px 8px;
+	margin-top: 3px;
+	display: inline-block;
+	background: #777;
+	border-radius: 20px;
+	cursor: pointer;
+}
+.logout {
+	margin-left: 10px;
+}
+.equis {
+	margin-left: 10px;
+}
+.footerpreliminar {
+	padding: 20px;
+	margin-top: 20px;
+}
+.footerpreliminar #borrar {
+	width: 20px;
+	height: 22px;
+	background: url(imgs/basura.png) no-repeat;
+	display: inline-block;
+	cursor: pointer;
+}
+.footerpreliminar #fecha {
+	font-size: 12px;
+	display: inline-block;
+	padding-left: 6px;
+	padding-top: 4px;
+}
+#avance {
+	display: none;
+}

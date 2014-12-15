@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang = "es">
+<head>
+	
+	{% load staticfiles %}
+
+	<title>Wamadeus</title>
+	<meta charset = "UTF-8" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+</head>
+<body class="inicio">
+	<section id="login">
+ 
+		<h1>Wamadeus</h1>
+		<h2>Login</h2>
+		<form action="." method="post">
+			{%csrf_token %}
+			<input type="text" name="username" placeholder="Usuario" />
+			<input type="password" name="password" placeholder="Contrasenia" />
+
+			<a href="." id="nuevacuenta">Crear nueva cuenta</a>
+			<input type="submit" value="Entrar" id="enviar" />
+		</form>
+
+	</section>
+<script type="text/javascript" src="" ></script>
+<script type="text/javascript" src="" ></script>
+</body>
+</html>

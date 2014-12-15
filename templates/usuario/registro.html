@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang = "es">
+<head>
+	{% load staticfiles %}
+	<title>Wamadeus</title>
+	<meta charset = "UTF-8" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+	
+</head>
+<body class="inicio">
+	<section id="login">
+
+		<h1>Wamadeus</h1>
+		<h2>Nueva cuenta</h2>
+		<form action="." method="post">
+			{% csrf_token %} 
+
+			{{ formulario.as_p }}
+			<input type="submit" value="Crear cuenta" id="enviar" />
+			
+		</form>
+	</section>
+</body>
+</html>
+

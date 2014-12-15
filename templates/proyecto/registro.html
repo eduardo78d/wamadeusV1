@@ -1,0 +1,41 @@
+{% extends 'plantillas/cabezera.html'%}
+{%block content%}
+
+<nav id="menuizq">
+		
+		<ul>
+			<li class="selected"><a href="{% url 'principal' %}">Tablero inicial</a></li>
+			<li><a href="{% url 'perfil' %}">Perfil</a></li>
+		</ul>
+
+</nav>
+<div id="pag">
+		<section id="content">
+			<section id="header">
+				<span id="home"></span>Tablero inicial
+				<div class="titulo">
+					<h1>Crear proyecto ›</h1>
+					<ul>
+						<li><a href="{% url 'principal' %}">Principal</a></li>
+						<li class="selected"><a href="#">Crear proyecto</a></li>
+					</ul>	
+				</div>
+			</section>
+			<section id="info">
+				<section id="form">
+					<ul>
+						<form action="{% url 'registroProyecto' %}" method="post">
+							{% csrf_token %} 
+							{{ formulario.as_p }}
+							<li>
+								<input type="submit" value="Enviar" />
+							</li>
+						</form>
+					</ul>
+				</section>
+				
+			</section>
+		</section>
+	</div>
+
+{%endblock%}
