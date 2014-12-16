@@ -4,7 +4,7 @@
 <nav id="menuizq">
 		
 		<ul>
-			<li class="selected"><a href="{% url 'principal' %}">Tablero inicial</a></li>
+			<li class="selected"><a href="{% url 'home' %}">Tablero inicial</a></li>
 			<li><a href="{% url 'perfil' %}">Perfil</a></li>
 		</ul>
 
@@ -16,7 +16,7 @@
 				<div class="titulo">
 					<h1>Crear proyecto ›</h1>
 					<ul>
-						<li><a href="{% url 'principal' %}">Principal</a></li>
+						<li><a href="{% url 'home' %}">Principal</a></li>
 						<li class="selected"><a href="#">Crear proyecto</a></li>
 					</ul>	
 				</div>
@@ -24,7 +24,7 @@
 			<section id="info">
 				<section id="form">
 					<ul>
-						<form action="{% url 'registroProyecto' %}" method="post">
+						<form action="." method="post">
 							{% csrf_token %} 
 							{{ formulario.as_p }}
 							<li>

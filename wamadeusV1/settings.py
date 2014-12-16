@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'apps',
     'apps.usuarios',
+    'apps.proyectos',
 )
 
 from django.core.urlresolvers import reverse_lazy

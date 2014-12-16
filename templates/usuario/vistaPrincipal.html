@@ -16,24 +16,12 @@
         <div class="titulo">
           <h1>Tablero inicial ></h1>
           <ul>
-            <li class="selected"><a href=".">Principal</a></li>
-            <li><a href=".">Crear proyecto</a></li>
+            <li class="selected"><a href="{% url 'home' %}">Principal</a></li>
+            <li><a href="{% url 'nuevoProyecto'%}">Crear proyecto</a></li>
           </ul> 
         </div>
       
       <section id="info">
       </section>
-      
-
-      <section id="buscar">
-        <h2>Colabora en un proyecto</h2>
-        <form>
-          <label>Busca:</label>
-          <input type="text" placeholder="Escribe tu busqueda." class="busqProyectos" />
-        </form>
-      </section>
-      
-      </section>
-    </section>
-  </div>
+    
 {%endblock%}
