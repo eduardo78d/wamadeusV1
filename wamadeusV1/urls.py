@@ -17,4 +17,6 @@ urlpatterns = patterns('',
     url(r'^home/$',home, name='home'),
 
     url(r'^registro/$', registro, name='registro'),
+
+    url(r'^usuario/', include('apps.usuarios.urls')),
 )
