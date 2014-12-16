@@ -11,10 +11,11 @@ class Estado(models.Model):
 		return self.nombre
 
 class Proyecto(models.Model):
+	#ForeignKey uno a muchos, ManytoMany, OnetoOne
 	creador = models.ForeignKey(Usuario)
 	nombre = models.CharField(max_length=50)
 	descripcion = models.TextField(max_length=100)
-	estado = models.OneToOneField(Estado)
+	estado = models.ForeignKey(Estado)
 	fechaRegistro = models.DateTimeField(default=datetime.now, blank=True)
 	
 

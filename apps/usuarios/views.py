@@ -1,14 +1,17 @@
 from django.shortcuts import render, redirect
 from .forms import FormularioUsuario
 from .models import Usuario
-
+from apps.proyectos.models import Proyecto
 
 # Create your views here.
 def perfil(request):
-	username = None
 	if request.user.is_authenticated():
-		username= request.user.username
-		return render(request, 'usuario/perfil.html', {'usuario': username})
+		listadoProyectos = Proyecto.objects.filter(creador= request.user)
+		print "La lista es  : "
+		print type(listadoProyectos)
+		print len(listadoProyectos[0])
+		return render(request, 'usuario/perfil.html', {'usuario': request.user.username,
+														'listadoProyectos':listadoProyectos})
 
 def editarPerfil(request):
 	#Valores apellidos, correo, descripcion, id, imagen, nombre, status, telefono, usuario, usuario_id

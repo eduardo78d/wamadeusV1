@@ -13,6 +13,6 @@ def nuevo(request):
 			newProject.save()
 			return redirect('nuevoProyecto')
 		else:
-			return redirect('nuevoProyecto')
+			return redirect('home')
 	else:
 		return render(request, 'proyecto/registro.html',{'formulario': FormularioProyecto})

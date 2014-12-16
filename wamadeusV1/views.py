@@ -4,7 +4,6 @@ from django.shortcuts import redirect
 from .forms import UserForm
 from apps.usuarios.models import Usuario
 
-
 def home(request):
 	username = None
 	if request.user.is_authenticated():
@@ -22,6 +21,7 @@ def registro(request):
 				nuevoUsuario.correo = form.cleaned_data['correo']
 				nuevoUsuario.telefono = 0
 				nuevoUsuario.save()
+				return redirect('home')		
 			else:
 				return redirect('registro')
 		else:
