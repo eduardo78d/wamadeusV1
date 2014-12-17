@@ -18,10 +18,8 @@
         <li class="sub"><a href="{% url 'editarProyecto' proyecto.nombre  proyecto.id   %}">Editar</a></li>
         <li class="sub"><a href="">Eliminar</a></li>
 
-      {% endif %}
-      
+      {% endif %}      
     </ul>
-    
   </nav>
 	</nav>
 	<div id="pag">
@@ -33,9 +31,9 @@
           <ul>
             <li><a href=".">Mis actividades</a></li>
             <li class="selected"><a href=".">Todas las actividades</a></li>
-          
-          
-
+            {% if administrador %}      
+              <li><a href=".">Agregar Actividad</a></li>
+            {% endif %}            
           </ul> 
         </div>
       </section>

@@ -10,4 +10,6 @@ urlpatterns = patterns('',
     url(r'actual/(?P<name_project>\w+)/(?P<id_project>[0-9]+)/$',proyecto,name='proyecto'),
 
     url(r'editar/(?P<name_project>\w+)/(?P<id_project>[0-9]+)/$',editar,name='editarProyecto'),
+
+    url(r'tarea/', include('apps.tareas.urls')),
 )

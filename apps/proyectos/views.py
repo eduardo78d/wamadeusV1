@@ -11,7 +11,7 @@ def nuevo(request):
 		usuario = Usuario.objects.get(usuario=request.user)
 		form = FormularioProyecto(request.POST)
 		if form.is_valid():
-			newProject = form.save(commit=False) # commit=False tells Django that "Don't send this to database yet.
+			newProject = form.save(commit=False)
 			newProject.creador = usuario
 			newProject.save()
 
@@ -22,8 +22,8 @@ def nuevo(request):
 		return render(request, 'proyecto/registro.html',{'formulario': FormularioProyecto})
 
 def proyecto(request, name_project, id_project):
-	currentProject = Proyecto.objects.get(id=id_project)  #Es posible que esto colapse en algun momento
-	usuario = Usuario.objects.get(id=request.user.id)  #Corregir esta consulta
+	currentProject = Proyecto.objects.get(id=id_project)
+	usuario = Usuario.objects.get(id=request.user.id)
 	
 	if usuario == currentProject.creador:
 		admin = True
@@ -38,7 +38,7 @@ def editar(request, name_project, id_project):
 
 	if usuario == currentProject.creador:
 		if request.method == 'POST':
-			form = FormularioProyecto(request.POST)
+			form = FormularioProyecto(request.POST, instance=currentProject)
 			if form.is_valid():
 				newProject = form.save(commit=False)
 				newProject.creador = usuario
