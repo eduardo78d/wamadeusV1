@@ -1,0 +1,87 @@
+{% extends 'plantillas/cabezera.html'%}
+{%block content%}
+
+
+<nav id="menuizq">
+		
+		<ul>
+			<li><a href=".">Tablero inicial</a></li>
+      <li><a href=".">Perfil</a></li>
+      <li class="selected"><a href=".">Datos del proyecto</a></li>
+
+      <li class="sub selected"><a href="">Actividades</a></li>
+      <li class="sub"><a href="">Colaboradores</a></li>
+      <li class="sub"><a href="">Estadisticas</a></li>
+      
+      <p>Si es admin </p>
+      <li class="sub"><a href="">Editar</a></li>
+      <li class="sub"><a href="">Eliminar</a></li>
+      
+		</ul>
+		
+	</nav>
+	<div id="pag">
+    <section id="content">
+      <section id="header">
+        <span id="home"></span>Mis proyectos
+        <div class="titulo">
+          <h1> {{proyecto.nombre}} </h1>
+          <ul>
+            <li><a href=".">Mis actividades</a></li>
+            <li class="selected"><a href=".">Todas las actividades</a></li>
+          
+          <h4>Link al administrador </h4>
+          </ul> 
+        </div>
+      </section>
+      <section id="info">
+        <p>Si es admin </p>
+            <form class="nuevo" action="." method="POST">
+              <input type="text" name ="nombre" placeholder="Agregar nueva actividad" autocomplete="off" />
+              <input type="hidden" name="idProyecto" value="id"/>
+              <input type="submit" style="display:none;" />
+            </form>
+          
+        
+              <section class="cuadro">
+              <h2><span>Actividades</span> Sin Asignar</h2>
+              <table class="table">
+                <tbody>
+            
+             </tbody>
+            </table>
+          </section>
+         
+                <section class="cuadro">
+                <h2><span>Actividades</span> activas</h2>
+                <table class="table">
+                  <tbody>
+                  </tbody>
+
+                  </table>
+                </section>
+              
+              <section class="cuadro">
+              <h2><span>Actividades</span> en Espera de respuesta</h2>
+              <table class="table">
+              <tbody>
+            
+             </tbody>
+            </table>
+          </section>
+          
+              <section class="cuadro">
+                <h2><span>Actividades</span> finalizadas</h2>
+                <table class="table">
+                  <tbody>
+           
+                  </tbody>
+                </table>
+              </section>
+          
+          
+      </section>
+    </section>
+  </div>
+
+{% endblock %}

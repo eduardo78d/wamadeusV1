@@ -7,9 +7,6 @@ from apps.proyectos.models import Proyecto
 def perfil(request):
 	if request.user.is_authenticated():
 		listadoProyectos = Proyecto.objects.filter(creador= request.user)
-		print "La lista es  : "
-		print type(listadoProyectos)
-		print len(listadoProyectos[0])
 		return render(request, 'usuario/perfil.html', {'usuario': request.user.username,
 														'listadoProyectos':listadoProyectos})
 
