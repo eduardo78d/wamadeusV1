@@ -6,7 +6,6 @@ from .forms import FormularioProyecto
 from apps.usuarios.models import Usuario
 from .models import Proyecto
 
-# Create your views here.
 def nuevo(request):
 	if request.method == 'POST':
 		usuario = Usuario.objects.get(usuario=request.user)
@@ -15,8 +14,8 @@ def nuevo(request):
 			newProject = form.save(commit=False) # commit=False tells Django that "Don't send this to database yet.
 			newProject.creador = usuario
 			newProject.save()
-			#Debemos de arreglar esto y utilizar un redirect con parametros
-			return HttpResponseRedirect('/proyecto/actual/'+ str(newProject.nombre) +'/'+str(newProject.id)+'/') 
+
+			return redirect('proyecto', name_project=str(newProject.nombre.replace(" ", "_")), id_project=str(newProject.id))
 		else:
 			return redirect('nuevoProyecto')
 	else:
@@ -30,7 +29,6 @@ def proyecto(request, name_project, id_project):
 		admin = True
 	else:
 		admin = False
-
 	return render(request, 'proyecto/proyecto.html', {'proyecto':currentProject,
 														'administrador': admin})
 
@@ -42,14 +40,13 @@ def editar(request, name_project, id_project):
 		if request.method == 'POST':
 			form = FormularioProyecto(request.POST)
 			if form.is_valid():
-				newProject = form.save(commit=False) # commit=False tells Django that "Don't send this to database yet.
+				newProject = form.save(commit=False)
 				newProject.creador = usuario
 				newProject.save()
-				return HttpResponseRedirect('/proyecto/editar/'+ str(name_project) +'/'+str(id_project)+'/') 
+				return redirect('editarProyecto', name_project=str(name_project), id_project=str(id_project))
 		else:
 			formulario = FormularioProyecto(instance=currentProject)
-			return render(request, 'proyecto/editar.html' , {'administrador': True, 'formulario': formulario})
+			return render(request, 'proyecto/editar.html' , {'proyecto': currentProject
+															,'administrador': True, 'formulario': formulario})
 	else:
-		return HttpResponseRedirect('/proyecto/actual/'+ str(name_project) +'/'+str(id_project)+'/') 
-
-	
+		return redirect('proyecto', name_project=str(name_project), id_project=str(id_project))

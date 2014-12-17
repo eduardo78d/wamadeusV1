@@ -1,8 +1,6 @@
 {% extends 'plantillas/cabezera.html'%}
 {%block content%}
 
-<?php $extraccion2 = DB::table('proyectos')->where("idProyecto",$ID)->first();  ?>
-
 <nav id="menuizq">
     
     <ul>
@@ -16,7 +14,7 @@
       
       {% if administrador %}
       
-        <li class="sub selected"><a href="">Editar</a></li>
+        <li class="sub selected"><a href="{% url 'editarProyecto' proyecto.nombre  proyecto.id   %}">Editar</a></li>
         <li class="sub"><a href="">Eliminar</a></li>
 
       {% endif %}
@@ -29,9 +27,9 @@
 	<div id="pag">
     <section id="content">
       <section id="header">
-        <span id="home"></span> Nombre  Editar proyecto
+        <span id="home"></span> Editar Proyecto
         <div class="titulo">
-          <h1>Editar proyecto </h1>  
+          <h1> {{ proyecto.nombre }} </h1>  
         </div>
       </section>
       <section id="info">
@@ -41,7 +39,7 @@
               {% csrf_token %}
               {{ formulario.as_p }}
               <li>
-                <input type="submit" value="Enviar" />
+                <input type="submit" value="Editar" />
               </li>
 
             </form>

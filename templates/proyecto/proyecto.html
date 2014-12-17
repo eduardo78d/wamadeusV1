@@ -3,9 +3,9 @@
 
 
 <nav id="menuizq">
-		
-		<ul>
-			<li><a href="{% url 'home' %}">Tablero inicial</a></li>
+    
+    <ul>
+      <li><a href="{% url 'home' %}">Tablero inicial</a></li>
       <li><a href="{% url 'perfil' %}">Perfil</a></li>
       <li class="selected"><a href=".">Datos del proyecto</a></li>
 
@@ -15,18 +15,19 @@
       
       {% if administrador %}
       
-        <li class="sub"><a href="">Editar</a></li>
+        <li class="sub"><a href="{% url 'editarProyecto' proyecto.nombre  proyecto.id   %}">Editar</a></li>
         <li class="sub"><a href="">Eliminar</a></li>
 
       {% endif %}
       
-		</ul>
-		
+    </ul>
+    
+  </nav>
 	</nav>
 	<div id="pag">
     <section id="content">
       <section id="header">
-        <span id="home"></span>Mis proyectos
+        <span id="home"></span>Proyecto
         <div class="titulo">
           <h1> {{proyecto.nombre}} </h1>
           <ul>
