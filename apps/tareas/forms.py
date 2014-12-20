@@ -5,3 +5,4 @@ from .models import Tarea
 class FormularioTarea(ModelForm):
 	class Meta: 
 		model = Tarea
+		exclude = ['proyecto', 'asignadoA']

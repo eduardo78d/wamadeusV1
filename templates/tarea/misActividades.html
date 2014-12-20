@@ -29,8 +29,8 @@
         <div class="titulo">
           <h1> {{proyecto.nombre}} </h1>
           <ul>
-            <li><a href="{% url 'misActividades' proyecto.nombre  proyecto.id %}">Mis actividades</a></li>
-            <li class="selected"><a href=".">Todas las actividades</a></li>
+            <li class="selected"><a href=".">Mis actividades</a></li>
+            <li><a href="{%  url 'proyecto' proyecto.nombre proyecto.id %}">Todas las actividades</a></li>
             {% if administrador %}      
               <li><a href="{% url 'registroTarea' proyecto.nombre  proyecto.id   %}">Agregar Actividad</a></li>
             {% endif %}            
@@ -40,29 +40,16 @@
       <section id="info">
           
         <section class="cuadro">
-          <h2><span>Actividades</span> Sin Asignar</h2>
+          <h2><span>Actividades</span> Finalizadas </h2>
           <table class="table">
             <tbody>
-            {% for tarea in listaTareasSinAsignar %}
-              <tr> 
-                <td> {{ forloop.counter }} </td>
-                <td> {{ tarea }} </td>
-                <td> {{ tarea.fechaEntrega }} </td>
-                <td> {{ tarea.estado }} </td>
-                <td> <a href="{% url 'asignarTarea' proyecto.nombre proyecto.id tarea.id %}"> Asignarme </a> </td>
-                {% if admistrador %}
-
-                {% endif %}
-
-              </tr> 
-
-            {% endfor %}  
+            
             </tbody>
           </table>
         </section>
           
         <section class="cuadro">
-          <h2><span>Actividades</span> Activas</h2>
+          <h2><span>Actividades</span> En trabajo </h2>
           <table class="table">
             <tbody>
             </tbody>
@@ -70,27 +57,8 @@
             </table>
           </section>
         
-          <section class="cuadro">
-            <h2><span>Actividades</span> En Espera de Respuesta</h2>
-            <table class="table">
-              <tbody>
-        
-              </tbody>
-            </table>
-          </section>
-          
-          <section class="cuadro">
-            <h2><span>Actividades</span> Finalizadas</h2>
-            <table class="table">
-              <tbody>
-       
-              </tbody>
-            </table>
-          </section>
-
         </section>
-        
-    </section>
+    
   </div>
 
 {% endblock %}

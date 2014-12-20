@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from .forms import FormularioProyecto
 
 from apps.usuarios.models import Usuario
+from apps.tareas.models import Tarea 
+
 from .models import Proyecto
 
 def nuevo(request):
@@ -25,12 +27,16 @@ def proyecto(request, name_project, id_project):
 	currentProject = Proyecto.objects.get(id=id_project)
 	usuario = Usuario.objects.get(id=request.user.id)
 	
+	listaTareasSinAsignar = Tarea.objects.all().filter(proyecto=currentProject, asignadoA=None)
+	print len(listaTareasSinAsignar)
+	
 	if usuario == currentProject.creador:
 		admin = True
 	else:
 		admin = False
 	return render(request, 'proyecto/proyecto.html', {'proyecto':currentProject,
-														'administrador': admin})
+														'administrador': admin,
+														'listaTareasSinAsignar':listaTareasSinAsignar})
 
 def editar(request, name_project, id_project):
 	usuario = Usuario.objects.get(id=request.user.id)  #Corregir esta consulta
@@ -50,3 +56,4 @@ def editar(request, name_project, id_project):
 															,'administrador': True, 'formulario': formulario})
 	else:
 		return redirect('proyecto', name_project=str(name_project), id_project=str(id_project))
+

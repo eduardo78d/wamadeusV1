@@ -29,8 +29,8 @@
         <div class="titulo">
           <h1> {{proyecto.nombre}} </h1>
           <ul>
-            <li><a href=".">Mis actividades</a></li>
-            <li><a href=".">Todas las actividades</a></li>
+            <li><a href="{% url 'misActividades' proyecto.nombre  proyecto.id %}">Mis actividades</a></li>
+            <li><a href="{%  url 'proyecto' proyecto.nombre proyecto.id %}">Todas las actividades</a></li>
             {% if administrador %}      
               <li class="selected"><a href=".">Agregar Actividad</a></li>
             {% endif %}            
