@@ -66,24 +66,31 @@
           <table class="table">
             <tbody>
             </tbody>
-
+              {% for tarea in listaTareasActivas%}
+                <tr>
+                  <td> {{ forloop.counter }}</td>
+                  <td> {{ tarea }} </td>
+                  <td> {{ tarea.fechaEntrega }}</td>
+                  <td> {{ tarea.estado }} </td>
+                </tr>
+              {% endfor %}
             </table>
           </section>
         
-          <section class="cuadro">
-            <h2><span>Actividades</span> En Espera de Respuesta</h2>
-            <table class="table">
-              <tbody>
-        
-              </tbody>
-            </table>
-          </section>
-          
           <section class="cuadro">
             <h2><span>Actividades</span> Finalizadas</h2>
             <table class="table">
               <tbody>
-       
+                
+                {% for tarea in listaTareasFinalizadas%}
+                  <tr>
+                    <td> {{ forloop.counter }}</td>
+                    <td> {{ tarea }} </td>
+                    <td> {{ tarea.fechaEntrega }}</td>
+                    <td> {{ tarea.estado }} </td>
+                  </tr>
+                {% endfor %}
+
               </tbody>
             </table>
           </section>

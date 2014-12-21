@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 
@@ -6,7 +7,7 @@ from .forms import FormularioProyecto
 from apps.usuarios.models import Usuario
 from apps.tareas.models import Tarea 
 
-from .models import Proyecto
+from .models import Proyecto, Estado
 
 def nuevo(request):
 	if request.method == 'POST':
@@ -16,7 +17,6 @@ def nuevo(request):
 			newProject = form.save(commit=False)
 			newProject.creador = usuario
 			newProject.save()
-
 			return redirect('proyecto', name_project=str(newProject.nombre.replace(" ", "_")), id_project=str(newProject.id))
 		else:
 			return redirect('nuevoProyecto')
@@ -27,16 +27,21 @@ def proyecto(request, name_project, id_project):
 	currentProject = Proyecto.objects.get(id=id_project)
 	usuario = Usuario.objects.get(id=request.user.id)
 	
+	estadoFinalizado = Estado.objects.get(nombre='Finalizado') #Instancia de las tareas finalizadas
+
 	listaTareasSinAsignar = Tarea.objects.all().filter(proyecto=currentProject, asignadoA=None)
-	print len(listaTareasSinAsignar)
-	
+	listaTareasActivas = Tarea.objects.all().exclude(estado=estadoFinalizado, asignadoA=None)
+	listaTareasFinalizadas = Tarea.objects.all().filter(estado=estadoFinalizado)
+
 	if usuario == currentProject.creador:
 		admin = True
 	else:
 		admin = False
 	return render(request, 'proyecto/proyecto.html', {'proyecto':currentProject,
 														'administrador': admin,
-														'listaTareasSinAsignar':listaTareasSinAsignar})
+														'listaTareasSinAsignar':listaTareasSinAsignar,
+														'listaTareasActivas': listaTareasActivas,
+														'listaTareasFinalizadas': listaTareasActivas})
 
 def editar(request, name_project, id_project):
 	usuario = Usuario.objects.get(id=request.user.id)  #Corregir esta consulta
