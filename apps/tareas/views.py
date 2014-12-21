@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from apps.usuarios.models import Usuario
-from apps.proyectos.models import Proyecto
+from apps.proyectos.models import Proyecto, Estado
 
 from .forms import FormularioTarea
 from .models import Tarea
@@ -32,15 +32,43 @@ def asignar(request, name_project, id_project, id_homework):
 def misActividades(request, name_project, id_project):
 	currentProject = Proyecto.objects.get(id=id_project)
 	usuario = Usuario.objects.get(id=request.user.id)
+
+	estadoFinalizado = Estado.objects.get(nombre='Finalizado')
+
 	if usuario == currentProject.creador:
 		admin = True
 	else:
 		admin = False
-	return render(request, 'tarea/misActividades.html', {'proyecto': currentProject, 'administrador':admin })
+	LAF = Tarea.objects.all().filter(asignadoA=usuario, estado=estadoFinalizado)
+	LAA = Tarea.objects.all().filter().exclude(estado=estadoFinalizado)
+
+	return render(request, 'tarea/misActividades.html', {'proyecto': currentProject, 'administrador':admin ,
+														'listaActividadesActivas': LAA,
+														'listaActividadesFinalizadas': LAF})
 
 def tarea(request, name_project, id_project, id_homework): #Validar Admin
 	currentProject = Proyecto.objects.get(id=id_project)
 	tarea = Tarea.objects.get(id=id_homework)
-	form = FormularioTarea(instance=tarea)
-	return render(request, 'tarea/tarea.html', {'administrador':True, 'proyecto':currentProject,
+
+	if request.method == 'POST':
+		form = FormularioTarea(request.POST, instance=tarea)
+		if form.is_valid():
+			uTarea = form.save(commit=False)
+			uTarea.proyecto= currentProject
+			uTarea.save()
+			return redirect('tarea', name_project= name_project, id_project=id_project, id_homework=id_homework)
+	else:
+		form = FormularioTarea(instance=tarea)
+		return render(request, 'tarea/tarea.html', {'administrador':True, 'proyecto':currentProject,
 												'formulario':form, 'tarea': tarea})
+
+def eliminarTarea(request, name_project, id_project,id_homework):
+	currentProject = Proyecto.objects.get(id=id_project)
+	tarea = Tarea.objects.get(id=id_homework)
+	if request.method == 'POST':
+		tarea.delete()
+		return redirect('proyecto', name_project=name_project, id_project=id_project)
+	else:
+		return render(request, 'tarea/eliminar.html', {'administrador':True, 'proyecto':currentProject,
+												'tarea': tarea})
+

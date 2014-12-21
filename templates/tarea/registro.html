@@ -7,9 +7,9 @@
     <ul>
       <li><a href="{% url 'home' %}">Tablero inicial</a></li>
       <li><a href="{% url 'perfil' %}">Perfil</a></li>
-      <li class="selected"><a href=".">Datos del proyecto</a></li>
+      <li class="selected"><a href="">Datos del proyecto</a></li>
 
-      <li class="sub selected"><a href="">Actividades</a></li>
+      <li class="sub selected"><a href="{% url 'proyecto' proyecto.nombre  proyecto.id   %}">Actividades</a></li>
       <li class="sub"><a href="">Colaboradores</a></li>
       <li class="sub"><a href="">Estadisticas</a></li>
       

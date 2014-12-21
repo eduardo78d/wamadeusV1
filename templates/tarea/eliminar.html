@@ -7,9 +7,9 @@
     <ul>
       <li><a href="{% url 'home' %}">Tablero inicial</a></li>
       <li><a href="{% url 'perfil' %}">Perfil</a></li>
-      <li class="selected"><a href="">Datos del proyecto</a></li>
+      <li class="selected"><a href=".">Datos del proyecto</a></li>
 
-      <li class="sub selected"><a href="{% url 'proyecto' proyecto.nombre  proyecto.id   %}">Actividades</a></li>
+      <li class="sub selected"><a href="{% url 'proyecto' proyecto.nombre  proyecto.id %}">Actividades</a></li>
       <li class="sub"><a href="">Colaboradores</a></li>
       <li class="sub"><a href="">Estadisticas</a></li>
       
@@ -30,8 +30,8 @@
           <h1> {{tarea.nombre}} </h1>
           <ul>
              
-            <li class="selected"><a href="{% url 'editarTarea' proyecto.nombre proyecto.id tarea.id %}">Editar Actividad</a></li>
-            <li><a href="{% url 'eliminarTarea' proyecto.nombre proyecto.id tarea.id%}">Eliminar Actividad</a></li>
+            <li><a href="{% url 'editarTarea' proyecto.nombre proyecto.id tarea.id %}">Editar Actividad</a></li>
+            <li class="selected"><a href="{% url 'eliminarTarea' proyecto.nombre proyecto.id tarea.id%}">Eliminar Actividad</a></li>
             
           </ul> 
         </div>
@@ -41,11 +41,11 @@
           <section id="form">
           <ul>
             <form action="." method="post">
-              {% csrf_token %} 
-              {{ formulario.as_p }}
+               {% csrf_token %}
               <li>
-                <input type="submit" value="Editar" />
+                <input type="submit" value="Eliminar" />
               </li>
+
             </form>
           </ul>
         </section>
