@@ -43,37 +43,55 @@
           <h2><span>Actividades</span> Sin Asignar</h2>
           <table class="table">
             <tbody>
+              <tr>
+                <th>Numero</th>
+                <th>Nombre</th> 
+                <th>Fecha de Entrega</th>
+                <th>Estado</th>
+                <th>Color</th>
+                <th>Asignación</th>
+              </tr>
+
             {% for tarea in listaTareasSinAsignar %}
               <tr> 
-                <td> {{ forloop.counter }} </td>
-                <td> {{ tarea }} </td>
-                <td> {{ tarea.fechaEntrega }} </td>
-                <td> {{ tarea.estado }} </td>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ tarea }}</td>
+                <td>{{ tarea.fechaEntrega }}</td>
+                <td>{{ tarea.estado }}</td>
+                <td>{{ tarea.estado.color }}</td>
                 <td> <a href="{% url 'asignarTarea' proyecto.nombre proyecto.id tarea.id %}"> Asignarme </a> </td>
-                {% if admistrador %}
-
-                {% endif %}
-
               </tr> 
-
             {% endfor %}  
+
             </tbody>
           </table>
         </section>
           
-        <section class="cuadro">
-          <h2><span>Actividades</span> Activas</h2>
-          <table class="table">
-            <tbody>
-            </tbody>
-              {% for tarea in listaTareasActivas%}
+          <section class="cuadro">
+            <h2><span>Actividades</span> En Trabajo</h2>
+            <table class="table">
+              <tbody>
                 <tr>
-                  <td> {{ forloop.counter }}</td>
-                  <td> {{ tarea }} </td>
-                  <td> {{ tarea.fechaEntrega }}</td>
-                  <td> {{ tarea.estado }} </td>
+                  <th>Numero</th>
+                  <th>Nombre</th> 
+                  <th>Fecha de Entrega</th>
+                  <th>Estado</th>
+                  <th>Color</th>
+                  <th>Progreso</th>
                 </tr>
-              {% endfor %}
+
+                {% for tarea in listaTareasActivas%}
+                  <tr>
+                    <td> {{ forloop.counter }}</td>
+                    <td> {{ tarea }} </td>
+                    <td> {{ tarea.fechaEntrega }}</td>
+                    <td> {{ tarea.estado }} </td>
+                    <td> {{ tarea.estado.color }} </td>
+                    <td> 100% </td>
+                  </tr>
+                {% endfor %}
+
+              </tbody>
             </table>
           </section>
         
@@ -81,7 +99,13 @@
             <h2><span>Actividades</span> Finalizadas</h2>
             <table class="table">
               <tbody>
-                
+                <tr>
+                  <th>Numero</th>
+                  <th>Nombre</th> 
+                  <th>Fecha de Finalización</th>
+                  <th>Fecha de Entrega</th>
+                </tr>
+
                 {% for tarea in listaTareasFinalizadas%}
                   <tr>
                     <td> {{ forloop.counter }}</td>

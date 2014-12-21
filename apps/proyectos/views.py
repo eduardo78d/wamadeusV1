@@ -27,12 +27,12 @@ def proyecto(request, name_project, id_project):
 	currentProject = Proyecto.objects.get(id=id_project)
 	usuario = Usuario.objects.get(id=request.user.id)
 	
-	estadoFinalizado = Estado.objects.get(nombre='Finalizado') #Instancia de las tareas finalizadas
+	estadoFinalizado = Estado.objects.get(nombre='Finalizado')
 
 	listaTareasSinAsignar = Tarea.objects.all().filter(proyecto=currentProject, asignadoA=None)
-	listaTareasActivas = Tarea.objects.all().exclude(estado=estadoFinalizado, asignadoA=None)
-	listaTareasFinalizadas = Tarea.objects.all().filter(estado=estadoFinalizado)
-
+	listaTareasActivas = Tarea.objects.all().filter(proyecto=currentProject).exclude(estado=estadoFinalizado)
+	listaTareasFinalizadas = Tarea.objects.all().filter(proyecto=currentProject, estado=estadoFinalizado)
+	
 	if usuario == currentProject.creador:
 		admin = True
 	else:
@@ -41,7 +41,7 @@ def proyecto(request, name_project, id_project):
 														'administrador': admin,
 														'listaTareasSinAsignar':listaTareasSinAsignar,
 														'listaTareasActivas': listaTareasActivas,
-														'listaTareasFinalizadas': listaTareasActivas})
+														'listaTareasFinalizadas': listaTareasFinalizadas})
 
 def editar(request, name_project, id_project):
 	usuario = Usuario.objects.get(id=request.user.id)  #Corregir esta consulta
