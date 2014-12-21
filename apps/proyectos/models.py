@@ -16,9 +16,8 @@ class Proyecto(models.Model):
 	nombre = models.CharField(max_length=50)
 	descripcion = models.TextField(max_length=100)
 	estado = models.ForeignKey(Estado)
-	fechaRegistro = models.DateTimeField(default=datetime.now, blank=True)
+	fechaRegistro = models.DateField( default=datetime.now )
 	
-
 	def __unicode__(self):
 		return self.nombre
 

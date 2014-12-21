@@ -29,19 +29,19 @@ def proyecto(request, name_project, id_project):
 	
 	estadoFinalizado = Estado.objects.get(nombre='Finalizado')
 
-	listaTareasSinAsignar = Tarea.objects.all().filter(proyecto=currentProject, asignadoA=None)
-	listaTareasActivas = Tarea.objects.all().filter(proyecto=currentProject).exclude(estado=estadoFinalizado)
-	listaTareasFinalizadas = Tarea.objects.all().filter(proyecto=currentProject, estado=estadoFinalizado)
-	
+	LTS = Tarea.objects.all().filter(proyecto=currentProject, asignadoA=None)
+	LTA = Tarea.objects.all().filter(proyecto=currentProject).exclude(estado=estadoFinalizado).exclude(asignadoA=None)
+	LTF = Tarea.objects.all().filter(proyecto=currentProject, estado=estadoFinalizado).exclude(asignadoA=None)
+
 	if usuario == currentProject.creador:
 		admin = True
 	else:
 		admin = False
 	return render(request, 'proyecto/proyecto.html', {'proyecto':currentProject,
 														'administrador': admin,
-														'listaTareasSinAsignar':listaTareasSinAsignar,
-														'listaTareasActivas': listaTareasActivas,
-														'listaTareasFinalizadas': listaTareasFinalizadas})
+														'listaTareasSinAsignar':LTS,
+														'listaTareasActivas': LTA,
+														'listaTareasFinalizadas': LTF})
 
 def editar(request, name_project, id_project):
 	usuario = Usuario.objects.get(id=request.user.id)  #Corregir esta consulta

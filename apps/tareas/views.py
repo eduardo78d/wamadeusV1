@@ -16,8 +16,7 @@ def registro(request, name_project , id_project):
 			newHomework = form.save(commit=False)
 			newHomework.proyecto = currentProject
 			newHomework.save()
-			print "Agregado con Exito"
-			return redirect('registroTarea', name_project=str(name_project), id_project=str(id_project))
+			return redirect('proyecto', name_project=str(name_project), id_project=str(id_project))
 		else:
 			return redirect('registroTarea', name_project=str(name_project), id_project=str(id_project))
 	else:
