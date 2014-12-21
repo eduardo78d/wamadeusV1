@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from .views import registro,asignar,misActividades
+from .views import registro,asignar,misActividades, tarea
 
 urlpatterns = patterns('',
  
@@ -10,5 +10,7 @@ urlpatterns = patterns('',
 	url(r'asignar/(?P<name_project>\w+)/(?P<id_project>[0-9]+)/(?P<id_homework>[0-9]+)/$',asignar,name='asignarTarea'),   
 
 	url(r'misActividades/(?P<name_project>\w+)/(?P<id_project>[0-9]+)/$',misActividades,name='misActividades'),   
+
+	url(r'tarea/(?P<name_project>\w+)/(?P<id_project>[0-9]+)/(?P<id_homework>[0-9]+)/$',tarea,name='tarea'),   
 
 )

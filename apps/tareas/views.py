@@ -37,3 +37,10 @@ def misActividades(request, name_project, id_project):
 	else:
 		admin = False
 	return render(request, 'tarea/misActividades.html', {'proyecto': currentProject, 'administrador':admin })
+
+def tarea(request, name_project, id_project, id_homework): #Validar Admin
+	currentProject = Proyecto.objects.get(id=id_project)
+	tarea = Tarea.objects.get(id=id_homework)
+	form = FormularioTarea(instance=tarea)
+	return render(request, 'tarea/tarea.html', {'administrador':True, 'proyecto':currentProject,
+												'formulario':form, 'tarea': tarea})

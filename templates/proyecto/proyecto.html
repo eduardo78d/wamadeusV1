@@ -55,7 +55,13 @@
             {% for tarea in listaTareasSinAsignar %}
               <tr> 
                 <td>{{ forloop.counter }}</td>
-                <td>{{ tarea }}</td>
+
+                {% if administrador %}
+                  <td> <a href="{% url 'tarea' proyecto.nombre proyecto.id tarea.id %}">{{ tarea }} </a> </td> 
+                {% else %}
+                  <td>{{ tarea }}</td>
+                {% endif %}
+                
                 <td>{{ tarea.fechaEntrega }}</td>
                 <td>{{ tarea.estado }}</td>
                 <td>{{ tarea.estado.color }}</td>
