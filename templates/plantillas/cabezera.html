@@ -15,11 +15,11 @@
 				<div id="busq"><ul></ul></div>
 				<input type="submit" style="display:none;" />
 			</form>
-			<span id="nombre"> {{ usuario }} </span>
+			<span id="nombre"> {{ request.user.username }} </span>
 			
 		</div>
 		<h3><a href="{% url 'home' %}">Wamadeus</a></h3>
-		<a href="{% url 'logout' %}" class="logout">Cerrar sesión</a>
+		<a href="{% url 'cerrarSesion'%}" class="logout">Cerrar sesión</a>
 	</header>
 
 	{% block content %} {% endblock %}

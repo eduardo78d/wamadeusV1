@@ -8,18 +8,8 @@
       <li><a href="{% url 'home' %}">Tablero inicial</a></li>
       <li><a href="{% url 'perfil' %}">Perfil</a></li>
       <li class="selected"><a href="">Datos del proyecto</a></li>
+   </ul>
 
-      <li class="sub selected"><a href="{% url 'proyecto' proyecto.nombre  proyecto.id   %}">Actividades</a></li>
-      <li class="sub"><a href="">Colaboradores</a></li>
-      <li class="sub"><a href="">Estadisticas</a></li>
-      
-      {% if administrador %}
-      
-        <li class="sub"><a href="{% url 'editarProyecto' proyecto.nombre  proyecto.id   %}">Editar</a></li>
-        <li class="sub"><a href="">Eliminar</a></li>
-
-      {% endif %}      
-    </ul>
   </nav>
   </nav>
   <div id="pag">
@@ -28,27 +18,36 @@
         <span id="home"></span>Tarea
         <div class="titulo">
           <h1> {{tarea.nombre}} </h1>
-          <ul>
-             
-            <li class="selected"><a href="{% url 'editarTarea' proyecto.nombre proyecto.id tarea.id %}">Editar Actividad</a></li>
-            <li><a href="{% url 'eliminarTarea' proyecto.nombre proyecto.id tarea.id%}">Eliminar Actividad</a></li>
-            
-          </ul> 
+           
         </div>
       </section>
         <section id="info">
 
-          <section id="form">
-          <ul>
-            <form action="." method="post">
-              {% csrf_token %} 
-              {{ formulario.as_p }}
-              <li>
-                <input type="submit" value="Editar" />
-              </li>
-            </form>
-          </ul>
+        <section class="cuadro">
+          <h2><span>Actividad</span>
+          <table class="table">
+            <tbody>
+              <tr>
+                
+                <th>Proyecto</th>
+                <th>Fecha Entrega</th>
+                <th>Estado</th>
+                <th>Color</th>
+
+              </tr>
+              <tr>
+                
+                <td>{{tarea.proyecto}}</td>
+                <td>{{tarea.fechaEntrega}}</td>
+                <td>{{tarea.estado}}</td>
+                <td>{{tarea.estado.color}}</td>
+
+              </tr>
+              
+            </tbody>
+          </table>
         </section>
+
             
         </section>
     </section>

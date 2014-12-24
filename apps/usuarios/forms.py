@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from django import forms
 from django.forms import ModelForm
 from .models import Usuario
 
@@ -11,4 +10,4 @@ class FormularioUsuario(ModelForm):
 
 	class Meta:
 		model = Usuario
-		fields = ['nombre', 'apellidos', 'correo', 'telefono' ,'descripcion'] 
+		fields = ['nombre', 'apellidos', 'correo', 'telefono' ,'descripcion', 'imagen'] 

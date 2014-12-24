@@ -1,14 +1,32 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 
+from django.contrib.auth import authenticate, login , logout
+
+
 from .forms import UserForm
 from apps.usuarios.models import Usuario
 
-def home(request):
-	username = None
+def vistaPrincipal(request):
 	if request.user.is_authenticated():
-		username= request.user.username
-		return render(request, 'usuario/vistaPrincipal.html', {'usuario': username})
+		return render(request, 'vistaPrincipal.html', {})
+	else:
+		if request.method == 'POST':
+			username = request.POST['username']
+			password = request.POST['password']
+			user = authenticate(username=username, password=password)
+			if user is not None:
+				if user.is_active:
+					login(request,user)
+					return render(request, 'vistaPrincipal.html', {})
+				else:
+					return redirect('home')	
+		else:
+			return render(request, 'home.html', {})
+
+def cerrarSesion(request):
+	logout(request)
+	return redirect('home')
 
 def registro(request):
 	if request.user.is_authenticated()==False:

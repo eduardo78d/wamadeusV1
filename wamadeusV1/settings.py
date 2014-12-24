@@ -26,6 +26,8 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+MEDIA_URL = '/profile_image/'
+MEDIA_ROOT = '/profile_image/'
 
 # Application definition
 

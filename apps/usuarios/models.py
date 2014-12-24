@@ -11,7 +11,7 @@ class Usuario(models.Model):
 
 	telefono = models.IntegerField()
 	correo = models.EmailField(max_length=50)
-	imagen = models.ImageField(upload_to='profile_image')
+	imagen = models.ImageField(upload_to='imagenes/profile_image')
 	descripcion = models.TextField(max_length=300)
 	status = models.BooleanField(default=False)
 

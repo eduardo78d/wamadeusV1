@@ -55,7 +55,7 @@
               {% for tarea in listaActividadesFinalizadas %}
               <tr>
                 <th> {{ forloop.counter }} </th>
-                <td>{{tarea.nombre}}</td>
+                <td> <a href="{% url 'tarea' tarea.id %}"> {{tarea.nombre}} </a> </td>
                 <td>{{tarea.proyecto}}</td>
                 <td>{{tarea.fechaEntrega}}</td>
                 <td>{{tarea.estado}}</td>

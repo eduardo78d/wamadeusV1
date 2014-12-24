@@ -1,6 +1,5 @@
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
 
 from .forms import FormularioProyecto
 
@@ -15,9 +14,10 @@ def nuevo(request):
 		form = FormularioProyecto(request.POST)
 		if form.is_valid():
 			newProject = form.save(commit=False)
+			newProject.nombre = form.cleaned_data['nombre'].replace(" ", "_")
 			newProject.creador = usuario
 			newProject.save()
-			return redirect('proyecto', name_project=str(newProject.nombre.replace(" ", "_")), id_project=str(newProject.id))
+			return redirect('proyecto', name_project=str(newProject.nombre), id_project=str(newProject.id))
 		else:
 			return redirect('nuevoProyecto')
 	else:

@@ -12,7 +12,6 @@ def perfil(request):
 
 def editarPerfil(request):
 	#Valores apellidos, correo, descripcion, id, imagen, nombre, status, telefono, usuario, usuario_id
-	username = None
 	if request.user.is_authenticated():
 		usuario = Usuario.objects.get(usuario=request.user)
 		if request.method == 'POST':
