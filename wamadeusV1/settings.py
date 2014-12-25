@@ -26,8 +26,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-MEDIA_URL = '/profile_image/'
-MEDIA_ROOT = '/profile_image/'
 
 # Application definition
 
@@ -42,14 +40,10 @@ INSTALLED_APPS = (
     'apps.usuarios',
     'apps.proyectos',
     'apps.tareas',
+    'apps.comentarios',
+    'apps.colaboradores',
+    
 )
-
-from django.core.urlresolvers import reverse_lazy
-
-LOGIN_URL = reverse_lazy('login')
-LOGIN_REDIRECT_URL= reverse_lazy('home')
-LOGOUT_URL= reverse_lazy('logout')
-
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

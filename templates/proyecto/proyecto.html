@@ -4,24 +4,24 @@
 
 <nav id="menuizq">
     
-    <ul>
-      <li><a href="{% url 'home' %}">Tablero inicial</a></li>
-      <li><a href="{% url 'perfil' %}">Perfil</a></li>
-      <li class="selected"><a href=".">Datos del proyecto</a></li>
+  <ul>
+    <li><a href="{% url 'home' %}">Tablero inicial</a></li>
+    <li><a href="{% url 'perfil' %}">Perfil</a></li>
+    <li class="selected"><a href=".">Datos del proyecto</a></li>
 
-      <li class="sub selected"><a href="{% url 'proyecto' proyecto.nombre  proyecto.id %}">Actividades</a></li>
-      <li class="sub"><a href="">Colaboradores</a></li>
-      <li class="sub"><a href="">Estadisticas</a></li>
-      
-      {% if administrador %}
-      
-        <li class="sub"><a href="{% url 'editarProyecto' proyecto.nombre  proyecto.id   %}">Editar</a></li>
-        <li class="sub"><a href="">Eliminar</a></li>
+    <li class="sub selected"><a href="{% url 'proyecto' proyecto.nombre  proyecto.id %}">Actividades</a></li>
+    <li class="sub"><a href="{% url 'colaboradores' proyecto.nombre proyecto.id %}">Colaboradores</a></li>
+    <li class="sub"><a href="">Estadisticas</a></li>
+    
+    {% if administrador %}
+    
+      <li class="sub"><a href="{% url 'editarProyecto' proyecto.nombre  proyecto.id   %}">Editar</a></li>
+      <li class="sub"><a href="{% url 'eliminarProyecto' proyecto.nombre proyecto.id %}">Eliminar</a></li>
 
-      {% endif %}      
-    </ul>
-  </nav>
-	</nav>
+    {% endif %}      
+  </ul>
+</nav>
+	
 	<div id="pag">
     <section id="content">
       <section id="header">

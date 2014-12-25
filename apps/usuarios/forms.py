@@ -5,9 +5,9 @@ from .models import Usuario
 
 
 class FormularioUsuario(ModelForm):
-	#https://docs.djangoproject.com/en/dev/topics/class-based-views/generic-editing/
-	#passwordCon = forms.CharField(label='password de confirmación', widget=forms.PasswordInput, initial='')
-
+	
 	class Meta:
 		model = Usuario
-		fields = ['nombre', 'apellidos', 'correo', 'telefono' ,'descripcion', 'imagen'] 
+		fields = ['nombre', 'apellidos', 'correo', 'telefono' ,'descripcion'] 
+		#La imagen esta dando problemas
+		#Agregra el campo de password para confirmar

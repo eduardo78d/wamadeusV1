@@ -1,0 +1,84 @@
+{% extends 'plantillas/cabezera.html'%}
+{%block content%}
+
+
+<nav id="menuizq">
+    
+  <ul>
+    <li><a href="{% url 'home' %}">Tablero inicial</a></li>
+    <li><a href="{% url 'perfil' %}">Perfil</a></li>
+    <li class="selected"><a href=".">Datos del proyecto</a></li>
+
+    <li class="sub"><a href="{% url 'proyecto' proyecto.nombre  proyecto.id %}">Actividades</a></li>
+    <li class="sub selected"><a href="">Colaboradores</a></li>
+    <li class="sub"><a href="">Estadisticas</a></li>
+    
+    {% if administrador %}
+    
+      <li class="sub"><a href="{% url 'editarProyecto' proyecto.nombre  proyecto.id   %}">Editar</a></li>
+      <li class="sub"><a href="{% url 'eliminarProyecto' proyecto.nombre proyecto.id %}">Eliminar</a></li>
+
+    {% endif %}      
+  </ul>
+</nav>
+
+
+
+	<div id="pag">
+    <section id="content">
+      <section id="header">
+        <span id="home"></span> Proyecto › Colaboradores
+        <div class="titulo">
+          <h1>Colaboradores ›</h1>  
+        </div>
+      </section>
+      
+      <section id="info">
+        
+          <section class="cuadro colaboradores">
+            <h2><span>Lista</span> de administradores</h2>
+                
+          </section>
+        
+
+        
+          <section class="cuadro colaboradores">
+            <h2><span>Lista</span> de Colaboradores</h2>
+                
+          </section>
+        
+        
+        
+          <section class="cuadro colaboradores">
+               <h2><span>Solicitudes</span> en espera de respuesta</h2>
+            
+          </section>
+        
+          <section class="cuadro colaboradores">
+               <h2><span>Solicitudes</span> Para Unirse al Proyecto</h2>
+            
+          </section>
+      
+
+       
+        <section id="form" class="cuadro">
+          <h2><span>Agregar</span> Nuevo Colaborador</h2>
+          <ul>
+
+              
+            <form action="." method="post" style="margin:20px;">
+              <li>
+                <label>Usuario:</label>
+                <input type="text" name="nombreColaborador" />
+              </li>
+              <li>
+                <input type="submit" value="Enviar" />
+              </li>
+            </form>
+          </ul>
+        </section>
+      </section>
+    </section>
+  </div>
+
+{% endblock %}

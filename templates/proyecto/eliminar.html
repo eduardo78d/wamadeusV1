@@ -7,9 +7,9 @@
     <ul>
       <li><a href="{% url 'home' %}">Tablero inicial</a></li>
       <li><a href="{% url 'perfil' %}">Perfil</a></li>
-      <li class="selected"><a href="">Datos del proyecto</a></li>
+      <li class="selected"><a href=".">Datos del proyecto</a></li>
 
-      <li class="sub selected"><a href="{% url 'proyecto' proyecto.nombre  proyecto.id   %}">Actividades</a></li>
+      <li class="sub selected"><a href="{% url 'proyecto' proyecto.nombre  proyecto.id %}">Actividades</a></li>
       <li class="sub"><a href="{% url 'colaboradores' proyecto.nombre proyecto.id %}">Colaboradores</a></li>
       <li class="sub"><a href="">Estadisticas</a></li>
       
@@ -25,16 +25,10 @@
   <div id="pag">
     <section id="content">
       <section id="header">
-        <span id="home"></span>Proyecto
+        <span id="home"></span>Tarea
         <div class="titulo">
-          <h1> {{proyecto.nombre}} </h1>
-          <ul>
-            <li><a href="{% url 'misActividades' proyecto.nombre  proyecto.id %}">Mis actividades</a></li>
-            <li><a href="{%  url 'proyecto' proyecto.nombre proyecto.id %}">Todas las actividades</a></li>
-            {% if administrador %}      
-              <li class="selected"><a href=".">Agregar Actividad</a></li>
-            {% endif %}            
-          </ul> 
+          <h1> {{tarea.nombre}} </h1>
+          
         </div>
       </section>
         <section id="info">
@@ -42,11 +36,11 @@
           <section id="form">
           <ul>
             <form action="." method="post">
-              {% csrf_token %} 
-              {{ formulario.as_p }}
+               {% csrf_token %}
               <li>
-                <input type="submit" value="Enviar" />
+                <input type="submit" value="Eliminar" />
               </li>
+
             </form>
           </ul>
         </section>

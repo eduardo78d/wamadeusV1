@@ -9,7 +9,7 @@ from apps.usuarios.models import Usuario
 
 def vistaPrincipal(request):
 	if request.user.is_authenticated():
-		return render(request, 'vistaPrincipal.html', {})
+		return render(request, 'vistaPrincipal.html', {'usuario': request.user.username})
 	else:
 		if request.method == 'POST':
 			username = request.POST['username']
@@ -18,7 +18,7 @@ def vistaPrincipal(request):
 			if user is not None:
 				if user.is_active:
 					login(request,user)
-					return render(request, 'vistaPrincipal.html', {})
+					return render(request, 'vistaPrincipal.html', {'usuario': request.user.username})
 				else:
 					return redirect('home')	
 		else:
@@ -29,20 +29,17 @@ def cerrarSesion(request):
 	return redirect('home')
 
 def registro(request):
-	if request.user.is_authenticated()==False:
-		if request.method == 'POST':
-			form = UserForm(request.POST)
-			if form.is_valid():
-				user = form.save()
-				nuevoUsuario = Usuario()
-				nuevoUsuario.usuario = user
-				nuevoUsuario.correo = form.cleaned_data['correo']
-				nuevoUsuario.telefono = 0
-				nuevoUsuario.save()
-				return redirect('home')		
-			else:
-				return redirect('registro')
+	if request.method == 'POST':
+		form = UserForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+			nuevoUsuario = Usuario()
+			nuevoUsuario.usuario = user
+			nuevoUsuario.correo = form.cleaned_data['correo']
+			nuevoUsuario.telefono = 0
+			nuevoUsuario.save()
+			return redirect('home')		
 		else:
-			return render(request, 'usuario/registro.html' ,{'formulario':UserForm})
+			return redirect('registro')
 	else:
-		return redirect('home')
+		return render(request, 'usuario/registro.html' ,{'formulario':UserForm})
