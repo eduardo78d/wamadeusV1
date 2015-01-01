@@ -20,6 +20,9 @@
 			<input type="password" name="password" placeholder="Contrasenia" />
 
 			<a href="{% url 'registro' %}" id="nuevacuenta">Crear nueva cuenta</a>
+
+			<a href="{% url 'social:begin' 'facebook' %}" id="nuevacuenta"> Facebook </a>
+
 			<input type="submit" value="Entrar" id="enviar" />
 		</form>
 

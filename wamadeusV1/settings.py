@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'apps.tareas',
     'apps.comentarios',
     'apps.colaboradores',
+    'social.apps.django_app.default',
     
 )
 
@@ -94,3 +95,13 @@ TEMPLATE_DIRS= ['templates']
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookAppOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',)
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '',
+SOCIAL_AUTH_FACEBOOK_SECRET = ''
