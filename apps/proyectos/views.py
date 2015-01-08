@@ -26,7 +26,7 @@ def isAdminProject(id_usuario, id_project):
 
 
 @login_required(login_url='/')
-def nuevo(request):
+def crear(request):
 	if request.method == 'POST':
 		usuario = getUsuario(request.user.id)
 		form = FormularioProyecto(request.POST)

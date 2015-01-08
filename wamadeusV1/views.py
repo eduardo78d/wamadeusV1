@@ -20,7 +20,9 @@ def vistaPrincipal(request):
 					login(request,user)
 					return render(request, 'vistaPrincipal.html', {'usuario': request.user.username})
 				else:
-					return redirect('home')	
+					return redirect('home')
+			else:
+				return render(request, 'home.html', {})	
 		else:
 			return render(request, 'home.html', {})
 

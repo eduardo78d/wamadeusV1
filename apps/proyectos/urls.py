@@ -1,11 +1,11 @@
 from django.conf.urls import patterns, include, url
 
 
-from .views import nuevo, proyecto, editar, eliminar
+from .views import crear, proyecto, editar, eliminar
 
 urlpatterns = patterns('',
     
-    url(r'nuevo/$',nuevo,name='nuevoProyecto'),
+    url(r'nuevo/$',crear,name='nuevoProyecto'),
 
     url(r'actual/(?P<name_project>\w+)/(?P<id_project>[0-9]+)/$',proyecto,name='proyecto'),
 

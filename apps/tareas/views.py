@@ -23,17 +23,25 @@ def isAdminProject(id_usuario, id_project):
 	else:
 		return False
 
-
+@login_required(login_url='/')
+def tarea(request, id_homework):
+	tarea = getTarea(id_homework)
+	return render(request, 'tarea/tarea.html' , {'usuario': request.user.username,
+												'tarea': tarea})
+	
 @login_required(login_url='/')
 def crear(request, name_project , id_project):
 	currentProject = Proyecto.objects.get(id=id_project)
 	if request.method == 'POST':
 		form = FormularioTarea(request.POST)
 		if form.is_valid():
-			newHomework = form.save(commit=False)
-			newHomework.nombre = form.cleaned_data['nombre'].replace(" ", "_")
-			newHomework.proyecto = currentProject
-			newHomework.save()
+			newHome = form.save(commit=False)
+			newHome.nombre = form.cleaned_data['nombre'].replace(" ", "_")
+			newHome.proyecto = currentProject
+
+			#Por alguna razon no funciona el Widget DateField 
+			newHome.fechaEntrega = request.POST['anioFinal'] +"-" +request.POST['mesFinal'] +"-" +request.POST['diaFinal'] 
+			newHome.save()
 			return redirect('proyecto', name_project=str(name_project), id_project=str(id_project))
 		else:
 			return redirect('registroTarea', name_project=str(name_project), id_project=str(id_project))
@@ -59,7 +67,7 @@ def misActividades(request, name_project, id_project):
 	LAF = Tarea.objects.all().filter(asignadoA=usuario, estado=estadoFinalizado, proyecto=currentProject)
 	LAA = Tarea.objects.all().filter(proyecto=currentProject).exclude(estado=estadoFinalizado)
 
-	return render(request, 'tarea/misActividades.html', {'usuario': request.user.username,
+	return render(request, 'tarea/misTareas.html', {'usuario': request.user.username,
 														'proyecto': currentProject, 
 														'administrador':administrador ,
 														'listaActividadesActivas': LAA,
@@ -97,8 +105,3 @@ def eliminar(request, name_project, id_project,id_homework):
 		return render(request, 'tarea/eliminar.html', {'usuario': request.user.username,
 														'administrador':True, 'proyecto':currentProject,
 														'tarea': tarea})
-@login_required(login_url='/')
-def tarea(request, id_homework):
-	tarea = getTarea(id_homework)
-	return render(request, 'tarea/tarea.html' , {'usuario': request.user.username,
-												'tarea': tarea})

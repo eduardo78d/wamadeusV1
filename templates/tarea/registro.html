@@ -44,9 +44,20 @@
             <form action="." method="post">
               {% csrf_token %} 
               {{ formulario.as_p }}
+              
               <li>
-                <input type="submit" value="Enviar" />
+                <label>Fecha final:</label>
+                <div class="junto">
+                  <input type="text" name="diaFinal" placeholder="DD" />
+                  <input type="text" name="mesFinal" placeholder="MM" />
+                  <input type="text" name="anioFinal" placeholder="AAAA" />
+                </div>
               </li>
+
+              <li>
+                <input type="submit" value="Agregar" />
+              </li>
+
             </form>
           </ul>
         </section>
